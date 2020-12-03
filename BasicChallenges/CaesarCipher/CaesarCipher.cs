@@ -24,31 +24,6 @@ namespace BasicChallenges.CaesarCipher
         /// <returns>The new letter.</returns>
         private static string GetNewLetter(string letter, int encodeFactor)
         {
-            // Determine if we breach the bounds of the alphabet in ASCII.
-            int ascii = GetAsciiValue(letter.ToUpper()) + encodeFactor;
-            if (ascii < 65 || ascii > 90)
-            {
-                int difference = ascii < 65 ? 65 - ascii : ascii - 90;
-
-                // If our testAscii is less than 65, then we want to find the ascii backwards from 90 (Z).
-                // If our testAscii wasn't, then we want to find the ascii forwards from 65 (A)
-                int newAscii = (ascii < 65) switch
-                {
-                    true => 91 - difference,
-                    false => 64 + difference
-                };
-
-                return Encoding.ASCII.GetString(new byte[] { Convert.ToByte(newAscii) });
-            }
-
-            // Since we are within the bounds of the alphabet, proceed as normal.
-            byte[] shiftedAscii = new byte[] { Convert.ToByte(ascii + encodeFactor) };
-            return Encoding.ASCII.GetString(shiftedAscii);
-        } 
-        */
-
-        private static string GetNewLetter(string letter, int encodeFactor)
-        {
             int upperCaseAscii = GetAsciiValue(letter.ToUpper()) + encodeFactor;
             var newAsciiValue = upperCaseAscii switch
             {
