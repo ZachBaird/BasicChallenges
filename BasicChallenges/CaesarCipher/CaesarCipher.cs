@@ -8,6 +8,7 @@ namespace BasicChallenges.CaesarCipher
     {
         private static int GetAsciiValue(string letter) => Encoding.ASCII.GetBytes(letter).First();
 
+        /*
         private static string GetNewLetterOld(string letter, int encodeFactor)
         {
             int ascii = GetAsciiValue(letter);
@@ -31,7 +32,8 @@ namespace BasicChallenges.CaesarCipher
             }
 
             return Encoding.ASCII.GetString(shiftedAscii);
-        }
+        } 
+        */
 
         private static string GetNewLetter(string letter, int encodeFactor)
         {
