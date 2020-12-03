@@ -54,5 +54,25 @@ namespace BasicChallengeTests
 
             Assert.Equal("Z", result);
         }
+
+        [Fact]
+        public void NumbersReturnUnaltered()
+        {
+            var (message, encodeFactor) = ("12345", 20);
+
+            var result = CaesarCipher.Encode(message, encodeFactor);
+
+            Assert.Equal("12345", result);
+        }
+
+        [Fact]
+        public void PunctuatioNReturnUnaltered()
+        {
+            var (message, encodeFactor) = (",.[]", -5);
+
+            var result = CaesarCipher.Encode(message, encodeFactor);
+
+            Assert.Equal(",.[]", result);
+        }
     }
 }
