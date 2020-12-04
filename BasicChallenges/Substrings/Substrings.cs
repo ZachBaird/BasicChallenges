@@ -26,17 +26,13 @@ namespace BasicChallenges.Substrings
         }
 
         public static List<SubstringRecord> Substring(string stringToParse, string[] dictionary)
-        {
-            List<SubstringRecord> results = new List<SubstringRecord>();
-
+        {           
             string lowerCasedString = stringToParse.ToLower();
-            foreach (string word in dictionary)
-            {
-                if (lowerCasedString.Contains(word))
-                {
-                    results.Add(CreateRecord(stringToParse, word));
-                }
-            }
+
+            List<SubstringRecord> results = dictionary
+                .Where(w => lowerCasedString.Contains(w))
+                .Select(w => CreateRecord(stringToParse, w))
+                .ToList();
 
             return results;
         }
