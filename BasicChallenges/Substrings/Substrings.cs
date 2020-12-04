@@ -19,8 +19,7 @@ namespace BasicChallenges.Substrings
                 .Select(w => w.ToLower()).ToArray();
 
             foreach (string word in words)
-                if (word == record.Substring || word.Contains(record.Substring))
-                    record.NumberOfOccurences += Regex.Matches(word, record.Substring).Count;
+                record.NumberOfOccurences += Regex.Matches(word, record.Substring).Count;
 
             return record;
         }
