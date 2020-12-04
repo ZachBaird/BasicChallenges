@@ -126,14 +126,14 @@ namespace BasicChallengeTests
         }
 
         [Fact]
-        public void CountJimmy5Times()
+        public void CountJimmy7Times()
         {
             string[] dictionary = new string[] { "jim" };
-            string stringToParse = "Jim jim Jimmy Jimster Jimbob";
+            string stringToParse = "Jim jim Jimmy Jimster Jimbob, JimJim";
 
             List<SubstringRecord> actual = Substrings.Substring(stringToParse, dictionary);
 
-            Assert.Equal(5, actual[0].NumberOfOccurences);
+            Assert.Equal(7, actual[0].NumberOfOccurences);
         }
     }
 }

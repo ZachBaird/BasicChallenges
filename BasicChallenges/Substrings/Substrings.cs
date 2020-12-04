@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace BasicChallenges.Substrings
 {
@@ -19,7 +20,7 @@ namespace BasicChallenges.Substrings
 
             foreach (string word in words)
                 if (word == record.Substring || word.Contains(record.Substring))
-                    record.NumberOfOccurences++;
+                    record.NumberOfOccurences += Regex.Matches(word, record.Substring).Count;
 
             return record;
         }
