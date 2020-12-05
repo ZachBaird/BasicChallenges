@@ -16,16 +16,9 @@ namespace BasicChallengeTests
         {
             int[] days = new int[] { 17, 3, 6, 9, 15, 8, 6, 1, 10 };
 
-            var results = StockPicker.Pick(days);
+            var s = StockPicker.Pick(days) as Result<(int, int), string>.Success;
 
-            switch (results)
-            {
-                case Result<(int, int), string>.Success s:
-                    Assert.Equal((1, 4), s.Value);
-                    break;
-                default:
-                    throw new Exception();
-            }
+            Assert.Equal((1, 4), s?.Value);
         }
 
         [Fact]
@@ -33,16 +26,9 @@ namespace BasicChallengeTests
         {
             int[] days = new int[] { 11, 9, 10, 3, 10 };
 
-            var results = StockPicker.Pick(days);
+            var s = StockPicker.Pick(days) as Result<(int, int), string>.Success;
 
-            switch (results)
-            {
-                case Result<(int, int), string>.Success s:
-                    Assert.Equal((3, 4), s.Value);
-                    break;
-                default:
-                    throw new Exception();
-            }
+            Assert.Equal((3, 4), s?.Value);            
         }
 
         [Fact]
@@ -50,16 +36,9 @@ namespace BasicChallengeTests
         {
             int[] days = new int[] { 0, 20, 10, 11, 9 };
 
-            var results = StockPicker.Pick(days);
+            var s = StockPicker.Pick(days) as Result<(int, int), string>.Success;
 
-            switch (results)
-            {
-                case Result<(int, int), string>.Success s:
-                    Assert.Equal((0, 1), s.Value);
-                    break;
-                default:
-                    throw new Exception();
-            }
+            Assert.Equal((0, 1), s.Value);
         }
 
         [Fact]
@@ -67,16 +46,9 @@ namespace BasicChallengeTests
         {
             int[] days = new int[] { 20, 19, 15, 10 };
 
-            var results = StockPicker.Pick(days);
+            var results = StockPicker.Pick(days) as Result<(int, int), string>.Failure;
 
-            switch (results)
-            {
-                case Result<(int, int), string>.Failure f:
-                    Assert.Equal("No lower day before high day present.", f.Value);
-                    break;
-                default:
-                    throw new Exception();
-            }
+            Assert.Equal("No lower day before high day present.", results?.Value);            
         }
     }
 }
