@@ -66,7 +66,7 @@ namespace BasicChallengeTests
         }
 
         [Fact]
-        public void PunctuatioNReturnUnaltered()
+        public void PunctuationReturnUnaltered()
         {
             var (message, encodeFactor) = (",.[]", -5);
 

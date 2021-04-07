@@ -48,7 +48,7 @@ namespace BasicChallengeTests
 
             var results = StockPicker.Pick(days) as Result<(int, int), string>.Failure;
 
-            Assert.Equal("No lower day before high day present.", results?.Value);            
+            Assert.Equal("No lower day before high day present.", results?.Message);            
         }
     }
 }
